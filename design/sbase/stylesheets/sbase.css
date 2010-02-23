@@ -1,0 +1,793 @@
+/* flash added by addthis.com */
+#atff {
+    display:none;
+}
+
+.clearboth {
+	clear:both;
+}
+
+.img-replace {
+    position:absolute;
+}
+
+.ua-images .img-replace {
+    position:static;
+}
+
+.mode-admin .content-view-children {
+    margin-top:20px;
+}
+
+.mode-admin .ezcoa {
+    margin-bottom:10px;
+}
+
+.mode-admin .adminmenu .box-bc {
+    margin-bottom:20px;
+}
+
+.mode-admin .adminmenu ul li  {
+    padding-left:10px;
+    line-height:1.4em;
+}
+
+.mode-admin .adminmenu ul li ul li  {
+    padding-left:20px;
+}
+
+.mode-admin .ezcoa.ezcoadt-ezstring label,
+.mode-admin .ezcoa.ezcoadt-ezboolean label,
+.mode-admin .ezcoa.ezcoadt-ezselection label,
+.mode-admin .ezcoa.ezcoadt-ezinteger label,
+.mode-admin .ezcoa.ezcoadt-ezfloat label,
+.mode-admin .ezcoa.ezcoadt-ezenum label,
+.mode-admin .ezcoa.ezcoadt-scolor label,
+.mode-admin .ezcoa.ezcoadt-ezobjectrelation label,
+
+.mode-admin .ezcca-edit-datatype-ezboolean label,
+.mode-admin .ezcca-edit-datatype-ezselection label,
+.mode-admin .ezcca-edit-datatype-ezinteger label,
+.mode-admin .ezcca-edit-datatype-ezfloat label,
+.mode-admin .ezcca-edit-datatype-ezenum label,
+.mode-admin .ezcca-edit-datatype-scolor label
+ {
+    display:inline;
+    float:left;
+}
+
+.mode-admin .ezcoa.ezcoadt-xrowmetadata th {
+    text-align:left;
+    vertical-align:top;
+    width:120px;
+}
+
+#ezwt-search input.halfbox {
+    background:#F0F2F4;
+    border: 1px solid #ccd2d6;
+    border-color: #abb1b5 #ffffff #ffffff #abb1b5;
+    margin-top:2px;
+    width:100px;
+}
+
+/* override width, min-height, _height, margin
+   needs div inside li */
+ul.inline-block li {
+	width: 172px;
+	min-height: 250px;
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 3px 6px 3px;
+	padding:0;
+	zoom: 1;
+	*display: inline;
+	_height: 250px;
+}
+/* override height */
+.ua-js .carousel-container {
+	display:block;
+	overflow:hidden;
+}
+
+.js .carousel-content {
+	width:32000px;
+}
+
+.carousel-content li {
+	float:left;
+	display: inline;
+}
+.carousel-end {
+	clear:left;
+}
+
+#yui-history-iframe { 
+	position:absolute; 
+	top:0; left:0; 
+	width:1px; height:1px; 
+	visibility:hidden; 
+}
+
+.opacity05 {
+	opacity: .5;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	filter: alpha(opacity=50);
+}
+
+input[type="text"], input[type="password"], textarea {
+	width:auto;
+}
+
+body.print, body.pdf {
+    background: none;
+}
+
+
+/* override content.css */
+.mode-site div.attribute-header h1, .mode-site div.attribute-header h1.long {
+	background:none;
+	color:inherit;
+	font-size:138.5%;
+	font-weight:normal;
+	margin:0;
+	padding:0;
+}
+
+.tabs-content .content-navigator {
+	clear:both;
+}
+
+
+
+/* override yui base.css */
+p {
+	margin:0;
+}
+
+.ezccadt-ezxmltext p {
+	margin-bottom:1em;
+}
+
+.ezccadt-ezxmltext ul li {
+    list-style-type:disc;
+}
+
+.ezccadt-ezxmltext ol li {
+    list-style-type:decimal;
+}
+
+.ezccadt-ezxmltext ul, .ezccadt-ezxmltext ol {
+    margin-left:2em;
+    margin-bottom:1em;
+}
+
+div.attribute-image {
+    margin-top:0;
+}
+
+/*.ezccadt-ezxmltext {
+	margin-bottom: -1em;
+}*/
+
+ol, ul, dl {
+	margin:0;
+}
+
+ul, ul li {
+	list-style-type:none;
+}
+
+ul li {
+	background:none;
+	padding:0;
+}
+
+.leftCol.adminmenu {
+	width:180px;
+	margin-right:6px;
+}
+
+/*.mode-admin.navpart-ezshopnavigationpart .main, 
+.mode-admin.module-newsletter .main,
+.mode-admin.module-collaboration .main,
+.mode-admin.module-content.function-versions .main,
+.mode-admin.module-content.function-advancedsearch .main,
+.mode-admin.module-content.function-urltranslator .main,
+.mode-admin.module-content.function-urlwildcards .main,
+.mode-admin.module-content.function-translations .main,
+.mode-admin.module-user.function-setting .main,
+.mode-admin.module-survey .main,
+.mode-admin.module-infocollector .main,
+.mode-admin.module-search .main,
+.mode-admin.module-rss .main,
+.mode-admin.module-url .main,
+.mode-admin.module-all2einfoexport .main*/
+
+.mode-admin .main,
+.mode-admin.module-content.function-versions .main,
+.mode-admin.module-content.function-advancedsearch .main,
+.mode-admin.module-content.function-urltranslator .main,
+.mode-admin.module-content.function-urlwildcards .main,
+.mode-admin.module-content.function-translations .main,
+.mode-admin.module-content.function-urlalias .main
+{
+	background-color:#fff;
+	border:1px solid #eee;
+	padding:5px;
+}
+
+.mode-admin.module-content .main,
+.mode-admin.module-notification .main,
+.mode-admin.module-shop.function-orderlist .main,
+.mode-admin.module-shop.function-orderview .main,
+.mode-admin.module-ezmultiupload .main {
+    background:none;
+    border:none;
+    padding:0;
+}
+
+.embed-tag div.content-view-embed div.attribute-image {
+    margin:0;
+}
+
+
+/* WEBSITE TOOLBAR */
+
+#toolbar {
+    position:relative;
+    z-index:200;
+}
+
+div#ezwt-ezlogo {
+	display:inline;
+	float:left;
+	margin:4px 4px 2px 6px;
+}
+
+select#ezwt-create
+{
+	position:relative;
+}
+
+#ezwt-standardactions
+{
+	display:inline;
+	min-height:22px;
+	height:22px;
+}
+
+.ezwt-left
+{
+    display:inline;
+    float:left;
+}
+
+.ezwt-detail
+{
+    margin-left:5px;
+    margin-top:1px;
+}
+
+.ezwt-right
+{
+	display:inline;
+	float:right;
+	margin:2px 3px 0 3px;
+}
+
+.ezwt-right p {
+	margin:0;
+	vertical-align:middle;
+}
+
+/* CONTENTSTRUCTURE TREE MENU STYLES */
+
+div#contentstructure
+{
+	position:absolute;
+}
+
+div#contentstructure ul#content_tree_menu a#superroot
+{
+	position:static;
+}
+
+div#contentstructure ul#content_tree_menu
+{
+    margin:2px 0 0 6px;
+    list-style-type: none;
+}
+
+div#contentstructure ul#content_tree_menu ul
+{
+    margin: 0;
+    padding-top: 4px;
+    padding-bottom: 0;
+}
+
+div#contentstructure ul#content_tree_menu li
+{
+	padding-left:0;
+	margin-left:0;
+	background-image:none;
+	background-position:0 0;
+}
+
+
+div#contentstructure ul#content_tree_menu ul ul
+{
+    margin-left: 0;
+}
+
+div#contentstructure ul#content_tree_menu li
+{
+    white-space: nowrap;
+    position: relative;
+}
+
+div#contentstructure ul#content_tree_menu ul li
+{
+    margin: 0;
+    padding-top: 0;
+    padding-left: 20px;
+    padding-bottom: 4px;
+    background-image: url(/design/admin/images/bg_content_tree_li.gif);
+    background-repeat: no-repeat;
+}
+
+div#contentstructure ul#content_tree_menu ul li.lastli
+{
+    background-image: url(/design/admin/images/bg_content_tree_li_last.gif);
+    padding-bottom: 2px;
+}
+
+div#contentstructure ul#content_tree_menu li img
+{
+    vertical-align: middle;
+}
+
+div#contentstructure .nodeicon
+{
+    margin-left: 0;
+    padding-left: 0;
+}
+
+div#contentstructure a.nodetext
+{
+    color: #315578;
+    text-decoration: none;
+}
+
+div#contentstructure a.nodetext:hover
+{
+    color: #000000;
+    text-decoration: underline;
+}
+
+div#contentstructure li.currentnode a.nodetext:hover
+{
+    text-decoration: none;
+}
+
+div#contentstructure li.currentnode li a.nodetext:hover
+{
+    color: #000000;
+    text-decoration: underline;
+}
+
+div#contentstructure li span.node-name-normal
+{
+    font-weight: normal;
+}
+
+div#contentstructure li.currentnode a.nodetext span.node-name-normal, div#contentstructure li.currentnode a.nodetext span.node-name-hidden, div#contentstructure li.currentnode a.nodetext span.node-name-hiddenbyparent /* Highlighting of current node */
+{
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #f08c00;
+    padding: 0 0.25em 0 0.2em;
+}
+
+div#contentstructure li.currentnode li a.nodetext span.node-name-normal, div#contentstructure li.currentnode li a.nodetext span.node-name-hidden, div#contentstructure li.currentnode li a.nodetext span.node-name-hiddenbyparent
+{
+    font-weight: normal;
+    color: #315578;
+    background-color: transparent;
+    padding: 0;
+}
+
+div#contentstructure li a.nodetext span.node-name-hidden, div#contentstructure li.currentnode li a.nodetext span.node-name-hidden
+{
+    font-weight: normal;
+    font-style: normal;
+    background-color: #e0e0c9;
+    padding: 0 0.2em 0 0.2em;
+}
+
+div#contentstructure li a.nodetext span.node-name-hiddenbyparent, div#contentstructure li.currentnode li a.nodetext span.node-name-hiddenbyparent
+{
+    font-weight: normal;
+    font-style: normal;
+    background-color: #eff0e4;
+    padding: 0 0.2em 0 0.2em;
+}
+
+div#contentstructure span.node-hidden, div#contentstructure span.node-hiddenbyparent
+{
+    display: none;
+}
+
+a.openclose, span.openclose
+{
+    text-decoration: none;
+}
+
+a.openclose img, span.openclose img
+{
+    margin: 0;
+    cursor: default;
+}
+
+div#contentstructure a.openclose, div#contentstructure span.openclose
+{
+    color: #315578;
+}
+
+div#contentstructure span.openclose
+{
+    visibility: hidden;
+}
+
+/* The following are used in the dynamic tree menu */
+div#contentstructure ul#content_tree_menu a.openclose-open, div#contentstructure ul#content_tree_menu a.openclose-close, div#contentstructure ul#content_tree_menu a.openclose-busy, div#contentstructure ul#content_tree_menu a.openclose-error
+{
+    position: absolute;
+    left: 0;
+    _left: -20px; /* to fix a bug in IE 6 */
+    top: 0;
+    width: 16px;
+    height: 16px;
+    background-image: url( '/design/admin/images/content_tree-open.gif' );
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+div#contentstructure ul#content_tree_menu a.openclose-close
+{
+    background-image: url( '/design/admin/images/content_tree-close.gif' );
+}
+
+div#contentstructure ul#content_tree_menu a.openclose-busy
+{
+    background-image: url( '/design/admin/images/content_tree-busy.gif' );
+    cursor: progress;
+}
+
+div#contentstructure ul#content_tree_menu a.openclose-error
+{
+    background-image: url( '/design/admin/images/content_tree-error.gif' );
+}
+
+div#contentstructure ul#content_tree_menu div.loaded
+{
+    display: block;
+}
+
+div#contentstructure ul#content_tree_menu div.hidden
+{
+    display: none;
+}
+
+div#contentstructure ul#content_tree_menu div#c1.loaded
+{
+	margin-top:7px;
+	background-color:#eaecee;
+	padding:0 4px 4px 0;
+	border:solid 1px #ccd2d6;
+	border-top:none;
+}
+
+/* POPUP MENU */
+
+#menu-form-create-here {
+    display:none;
+}
+
+div.popupmenu
+{
+    width: 14em;
+    font-size: 0.85em;
+    margin: 0px;
+    padding: 4px;
+    background-color: #ecece4;
+    border: 2px solid #ffffff;
+    border-bottom-color: #bfbeb6;
+    border-right-color: #bfbeb6;
+    z-index: +201; 
+    text-align:left;
+
+    /* These two are essential */
+    position: absolute;
+    visibility: hidden;
+}
+
+div.popupmenu#EditSubmenu
+{
+    z-index: +2;
+}
+
+div.popupmenu div.popupmenuheader
+{
+    margin: -2px -2px 0.5em -2px;
+    background-image: url(/design/admin/images/popup-menuheader-background.gif);
+    background-repeat: repeat-y;
+    background-position: top left;
+    border: 1px solid #ffffff;
+    border-bottom-color: #bfbeb6;
+    border-right-color: #bfbeb6;
+}
+
+div.popupmenu h3
+{
+    margin: 0;
+    padding: 0.2em 0.5em 0.2em 0.5em;
+    float: left;
+}
+
+div.popupmenu div.window-close
+{
+    float: right;
+    padding: 1px;
+}
+
+div.popupmenu div.window-close p
+{
+    font-weight: bold;
+    color: #000000;
+    background-color: #ecece4;
+    margin: 0;
+    padding: 0.1em 0.3em 0.1em 0.3em;
+    border: 1px solid #ffffff;
+    border-bottom-color: #bfbeb6;
+    border-right-color: #bfbeb6;
+}
+
+div.popupmenu a
+{
+    color: #000000;
+    padding: 0.1em 0.3em 0.1em 0.3em;
+    text-decoration: none;
+    cursor: default;
+    display: block;
+}
+
+div.popupmenu a.more
+{
+    background-image: url(/design/admin/images/more-arrow.gif);
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+
+div.popupmenu a.menu-item-disabled
+{
+    color: #CECECE;
+}
+
+div.popupmenu a:hover
+{
+    color: #ffffff;
+    background-color: #2d537a;
+    text-decoration: none;
+    cursor: default;
+}
+
+div.popupmenu hr
+{
+    border: none;
+    border-top: 1px solid #c0c0c0;
+}
+
+span.overriden
+{
+    color: red;
+}
+
+div.attribute-tipafriend {
+	background:none;
+	margin:0;
+}
+
+div.embed-tag.object-left, div.embed-tag.object-right
+{
+	clear:none;
+	float:none;
+}
+
+.object-center .content-view-embed-content
+{	
+	margin-left:auto !important;
+	margin-right:auto !important;
+	text-align:left;
+}
+
+.object-right .content-view-embed-content
+{
+	margin-left:auto !important;
+	margin-right:0 !important;
+	text-align:left;
+}
+
+.content-view-embed-content.object-left
+{
+	margin-right:6px;
+}
+
+.content-view-embed-content.object-right
+{
+	margin-left:6px;
+}
+
+/* calendar */
+
+div.ezagenda_calendar_container table th
+{
+    font-weight: bold;
+    text-align: center;
+    height: 20px;
+    border: 1px solid;
+    border-color: #fefffc #dee0dd #dee0dd #fefffc;
+    border-top: 0px;
+}
+
+div.ezagenda_calendar_container table td
+{
+    padding: 8px;
+    border: 1px solid;
+    border-color: #fefffc #dee0dd #dee0dd #fefffc;
+    text-align: center;
+}
+
+div.ezagenda_calendar_container table .first_col
+{
+    border-left: 0px;
+}
+
+div.ezagenda_calendar_container table .last_col
+{
+    border-right: 0px;
+}
+
+div.ezagenda_calendar_container table  tr.calendar_heading th
+{
+    border: 0px;
+    padding-bottom: 12px;
+}
+
+div.ezagenda_calendar_container table  tr.calendar_heading th a
+{
+    text-decoration: none;
+}
+
+div.ezagenda_calendar_container table td.ezagenda_selected
+{
+    background-color: #e4e5e4;
+}
+
+div.ezagenda_calendar_container table td.ezagenda_current, div.ezagenda_calendar_container table td.ezagenda_current a
+{
+    color: #df1d42;
+    font-weight: bold;
+}
+
+div.ezagenda_calendar_container table
+{
+    font-size: 11px;
+    margin: 0 0 0 0;
+    background-image: none;
+    background-color: transparent;
+}
+
+div.ezagenda_calendar_container table td
+{
+    border-color: #ffffff #c2dbe8 #c2dbe8 #ffffff;
+    color: #717274;
+    padding: 6px;
+}
+
+div.ezagenda_calendar_container table th
+{
+    border-color: #ffffff #c2dbe8 #c2dbe8 #ffffff;
+    font-weight: normal;
+    color: #717274;
+}
+
+div.ezagenda_calendar_container table tr.last_row td
+{
+    border-bottom: none;
+}
+
+div.ezagenda_calendar_container table th.calendar_heading_date
+{
+    font-weight: bold;
+    color: #000000;
+}
+
+div.ezagenda_calendar_container table th.calendar_heading_prev a, div.ezagenda_calendar_container table th.calendar_heading_next a
+{
+    color: #017bdb;
+}
+
+div.ezagenda_calendar_container table td.ezagenda_selected
+{
+    background-color: #fbffff;
+    background-image: url(images/ezagenda_selected.jpg);
+    background-repeat: repeat-x;
+}
+
+div#ezagenda_calendar_today h2, div#ezagenda_calendar_right h2
+{
+    font-family: "Trebuchet MS", Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 1.3em;
+    color: #000000;
+}
+
+div#ezagenda_calendar_today div.ezagenda_day_event h4
+{
+    font-size: 12px;
+}
+
+div#ezagenda_calendar_today div.ezagenda_day_event h4 a
+{
+    color: #3f8abd;
+}
+
+div#ezagenda_calendar_right table.ezagenda_month_event
+{
+    border: none;
+}
+
+div#ezagenda_calendar_right table.ezagenda_month_event td.ezagenda_month_label
+{
+    width: 74px;
+    padding: 0;
+}
+
+div#ezagenda_calendar_right table.ezagenda_month_event td.ezagenda_month_info
+{
+    padding-top: 1.5em;
+}
+
+div#ezagenda_calendar_right table.ezagenda_month_event td.ezagenda_month_info h4
+{
+    color: #000000;
+    font-size: 12px;
+}
+
+div#ezagenda_calendar_right table.ezagenda_month_event td.ezagenda_month_info h4 a
+{
+    color: #3f8abd;
+}
+
+div#ezagenda_calendar_right table.ezagenda_month_event td.ezagenda_month_label h2
+{
+    background: #FFF url(images/ezagenda_month_label_bg.jpg) no-repeat scroll 2px 0px;
+    width: 64px;
+    height: 62px;
+    border: none;
+    margin-left: 0;
+    padding: 1em 0 0 0;
+    color: #FFFFFF;
+    font-weight: normal;
+}
+
+div#ezagenda_calendar_right table.ezagenda_month_event td.ezagenda_month_label h2 span.ezagenda_month_label_date
+{
+    display: block;
+    font-size: 22px;
+}
+
+div#ezagenda_calendar_today div.ezagenda_day_event
+{
+    border: 1px solid #c7e5ee;
+}

@@ -1,0 +1,1 @@
+node-view-full nodeid-{$node.node_id} objectid-{$node.object.id} class-{if is_set($class_name)}{$class_name}{else}{$node.object.class_identifier|explode('_')|implode('-')}{/if}{if $node.can_edit} can-edit{/if}{if $node.can_move} can-move{/if}{if $node.can_hide} can-hide{/if}{if $node.can_remove} can-remove{/if}
