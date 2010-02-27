@@ -11,7 +11,7 @@
 				{set $can_reply=true() }
 			{/if}
 		{/if}
-        <h1 id="comments"><span>Comments on {$node.name|wash()}</span></h1>
+        <h2 class="h1" id="comments"><span>Comments on {$node.name|wash()}</span></h2>
         {def $intro=false() }
         {switch match=$used_node.class_identifier}
         	{case match='recipe'}
