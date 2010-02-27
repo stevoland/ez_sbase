@@ -6,6 +6,7 @@
 
 [CustomTemplateSettings]
 #CustomTemplateList[]=detail
+#CustomTemplateList[]=analytics
 
 #CustomEditTemplateList[]
 
@@ -15,9 +16,10 @@
 #IncludeInView[newsletter]=*
 #IncludeInView[shop]=*
 #IncludeInView[adminsearch]=*
+#IncludeInView[analytics]=*
 
-[NewsletterToolbar]
-DefaultNewsletterTypeId=5
-DefaultNewsletterClass=35
+#[NewsletterToolbar]
+#DefaultNewsletterTypeId=5
+#DefaultNewsletterClass=35
 
 */ ?>
