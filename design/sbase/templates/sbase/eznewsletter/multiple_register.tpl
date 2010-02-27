@@ -21,9 +21,9 @@
 
 {if $not_subscribed|count}
 	{if $not_subscribed|count|gt(1)}
-		<h1>Why not sign up to receive these newsletters by email?</h1>
+		<h2>Why not sign up to receive these newsletters by email?</h2>
 	{else}
-		<h1>Why not sign up to receive {$not_subscribed.0.name|wash} newsletter by email?</h1>
+		<h2>Why not sign up to receive {$not_subscribed.0.name|wash} newsletter by email?</h2>
 	{/if}
 	{def $default_format=2}
 	{if ezini_hasvariable('NewsletterSettings', 'DefaultOutputFormat', 'sbase.ini')}
