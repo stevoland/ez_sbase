@@ -1,6 +1,0 @@
-= _sbase
-
-An eZPublish extension that provides a base for our sites.
-
-It's not designed for public consumption but contains features which might be spun-off into dedicated extensions in the future.
-
