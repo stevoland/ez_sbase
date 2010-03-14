@@ -65,7 +65,7 @@
 	 		module, 'content',
 	 		functions, 'view,versionview,search,advancedsearch,keyword,tipafriend',
 	 		mode, 'site',
-	 		menu, 'design:page_leftmenu.tpl'
+	 		menu, $menu
 	 	),
 	 	hash(
 	 		module, 'content',
@@ -78,31 +78,31 @@
 	 		module, 'error',
 	 		functions, 'view',
 	 		mode, 'site',
-	 		menu, 'design:page_leftmenu.tpl'
+	 		menu, $menu
 	 	),
 	 	hash(
 	 		module, 'user',
 	 		functions, 'login,logout,register,activate,forgotpassword,password,success,activate,edit',
 	 		mode, 'site',
-	 		menu, 'design:page_leftmenu.tpl'
+	 		menu, $menu
 	 	),
 	 	hash(
 	 		module, 'vlogin',
 	 		functions, 'login,logout,edit',
 	 		mode, 'site',
-	 		menu, 'design:page_leftmenu.tpl'
+	 		menu, $menu
 	 	),
 	 	hash(
 	 		module, 'shop',
 	 		functions, 'basket,confirmorder,customerorderview,userregister,wishlist',
 	 		mode, 'site',
-	 		menu, 'design:page_leftmenu.tpl'
+	 		menu, $menu
 	 	),
 	 	hash(
 	 		module, 'newsletter',
 	 		functions, 'user_settings,register_subscription,subscription_activate,read',
 	 		mode, 'site',
-	 		menu, 'design:page_leftmenu.tpl'
+	 		menu, $menu
 	 	)
 	 )
 }
