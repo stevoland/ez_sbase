@@ -255,6 +255,8 @@ select#ezwt-create
 	display:inline;
 	min-height:22px;
 	height:22px;
+    position:relative;
+    z-index:5;
 }
 
 .ezwt-left
