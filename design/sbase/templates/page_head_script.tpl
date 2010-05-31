@@ -26,6 +26,7 @@
 	{undef $webin_scripts}
 {/if}
 {def $design_scripts=ezini( 'JavaScriptSettings', 'JavaScriptList', 'design.ini' )|unique}
+{ezscript( 'ezjsc::yui3', 'text/javascript', '' )}
 {ezscript( $design_scripts, 'text/javascript', '' )}
 {set $loaded_scripts=$loaded_scripts|array_merge($design_scripts) }
 {undef $design_scripts}
