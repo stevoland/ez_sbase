@@ -7,11 +7,13 @@
                  'yui3/base.css',
                  'yui3/fonts.css',
                  'core.css',
+                 'pagelayout.css',
                  'debug.css',
                  'oocss/template.css',
                  'content.css',
                  'websitetoolbar.css',
                  'sbase.css',
+                 'extra.css',
                  ezini( 'StylesheetSettings', 'CSSFileList', 'design.ini' ),
                  ezini( 'StylesheetSettings','SiteCSS','design.ini') ) }
 {else}
@@ -19,11 +21,13 @@
                  'yui3/base.css',
                  'yui3/fonts.css',
                  'core.css',
+                 'pagelayout.css',
                  'debug.css',
                  'oocss/template.css',
                  'content.css',
                  'websitetoolbar.css',
                  'sbase.css',
+                 'extra.css',
                  ezini( 'StylesheetSettings','SiteCSS','design.ini') ) }
 {/if}
 {ezcss($loaded_styles) }

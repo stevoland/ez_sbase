@@ -52,3 +52,5 @@
 	{set $head_inline_scripts = array()
 		 scope=global}
 {/if}
+
+{include uri='design:page_head_styleeditor.tpl'}

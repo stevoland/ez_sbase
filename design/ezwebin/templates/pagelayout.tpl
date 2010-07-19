@@ -22,6 +22,8 @@
      
      $pagestyle			  = '' }
      
+{include uri='design:page_head_displaystyles.tpl'}
+     
 {if is_set( $extra_cache_key )|not}
   {def $extra_cache_key = ''}
 {/if}
@@ -93,7 +95,8 @@
   <!-- Toolbar area: END -->
 
   <!-- Columns area: START -->
-  <div id="bd">
+  <div id="columns-position">
+  <div id="bd" class="float-break">
 
     <!-- Side menu area: START -->
     {if or($pagedata.left_menu, $mode|eq('admin')) }
@@ -135,6 +138,7 @@
              $pagedesign = $pagedata.template_look}
     {/if}
 
+  </div>
   </div>
   <!-- Columns area: END -->
 

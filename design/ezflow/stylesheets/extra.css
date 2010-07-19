@@ -1,0 +1,56 @@
+body
+{
+	background-color: #464346;
+}
+
+h1
+{
+    margin-top: 0;
+}
+
+a
+{
+    color: #c70000;
+    text-decoration: none;
+}
+
+ul, ol
+{
+    margin: 0.75em 0 1em 1em;
+    padding: 0;
+    list-style-type: none;
+}
+
+li
+{
+    margin: 0 0 0.5em 0.25em;
+    padding: 0 0 0 14px;
+    background-image: url(../images/li-bullet.gif);
+    background-repeat: no-repeat;
+    background-position: 0 0.4em;
+    line-height: 1.25em;
+    list-style-type: none;
+}
+
+input.button, button, input.defaultbutton, input.button-disabled
+{
+    background-image: url(../images/button-bg.png);
+    background-repeat: repeat-x;
+    background-position: left top;
+    border: 1px solid #b9b7b7;
+    cursor: pointer;
+    font-size: 0.8em;
+    color: #282929;
+    vertical-align: middle;
+    margin: 0.25em 0 0.25em 0;
+}
+
+#bd {
+    margin:0 auto;
+}
+
+
+#bd,
+#ezwt {
+    width:770px;
+}

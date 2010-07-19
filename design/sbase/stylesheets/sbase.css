@@ -179,7 +179,7 @@ ul, ul li {
 }
 
 ul li {
-	background:none;
+	background:none no-repeat;
 	padding:0;
 }
 
@@ -793,50 +793,3 @@ div#ezagenda_calendar_today div.ezagenda_day_event
 {
     border: 1px solid #c7e5ee;
 }
-
-/* TOP MENU */
-
-div#topmenu
-{
-    margin: 0;
-    padding: 0 0.25em 0 0.2em;
-    background-color: #FFFFFF;
-    text-align:center;
-}
-
-div#topmenu ul
-{
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    clear: both;
-}
-
-div#topmenu ul li
-{
-    display:inline-block;
-    margin: 0;
-    padding: 0;
-    white-space: nowrap;
-}
-
-div#topmenu ul li a
-{
-    display: block;
-    line-height:22px;
-    margin: 0 0 6px 0;
-    padding: 5px 15px 0 15px;
-    text-decoration: none;
-}
-
-div#topmenu ul li.selected a, div#topmenu ul li a:hover
-{
-    /*border-bottom: 3px solid #ABAB9E;
-    margin: 0 0 3px 0;*/
-}
-
-div#topmenu ul li.lastli
-{
-    background-image: none;
-}
-
