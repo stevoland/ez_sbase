@@ -19,6 +19,10 @@
 	</script>
 <![endif]-->
 
+{ezscript_load( array( 'ezjsc::jquery', 'ezjsc::jqueryio' ) )}
+
+{include uri='design:page_head_styleeditor.tpl'}
+
 {if and($current_user.is_logged_in, fetch( 'user', 'has_access_to', hash( 'module', 'websitetoolbar', 'function', 'use' ) ) ) }
 	{def $webin_scripts=ezini( 'WebinJavaScriptSettings', 'JavaScriptList', 'sbase.ini' )|unique}
 	{ezscript( $webin_scripts, 'text/javascript', '' )}
@@ -52,5 +56,3 @@
 	{set $head_inline_scripts = array()
 		 scope=global}
 {/if}
-
-{include uri='design:page_head_styleeditor.tpl'}

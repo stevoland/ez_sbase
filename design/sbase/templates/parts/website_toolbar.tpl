@@ -117,7 +117,6 @@
   {/if}
   <input type="hidden" name="ContentObjectLanguageCode" value="{$content_object_language_code}" />
 </form>
-</div>
 
 {* Custom templates inclusion *}
 {def $views = ''}
@@ -130,6 +129,7 @@
     {/if}
 {/foreach}
 {undef $views}
+</div>
 
 {include uri='design:parts/websitetoolbar/help.tpl'}
 

@@ -283,6 +283,10 @@ select#ezwt-create
 	vertical-align:middle;
 }
 
+div#ezwt .left {
+    margin-right:4px;
+}
+
 /* CONTENTSTRUCTURE TREE MENU STYLES */
 
 div#contentstructure

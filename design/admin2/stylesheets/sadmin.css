@@ -1,0 +1,8 @@
+#header-logo a, #header-logo span {
+	width:20px;
+	background:none;
+}
+
+.loginpage #columns #maincontent .box-header {
+	background:none;
+}

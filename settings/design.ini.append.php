@@ -9,6 +9,8 @@ DesignExtensions[]=ezvlogin
 EditorCSSFileList[]=editor_content.css
 #EditorDialogCSSFileList[]=editor_dialog.css
 
+BackendCSSFileList[]=sadmin.css
+
 
 
 */ ?>

@@ -1,3 +1,4 @@
+/* Differences between ezflow core.css and ezwebin core.css */
 body
 {
 	background-color: #464346;
@@ -45,12 +46,20 @@ input.button, button, input.defaultbutton, input.button-disabled
     margin: 0.25em 0 0.25em 0;
 }
 
+
+/* Stuff for OOCSS for ezflow */
 #bd {
     margin:0 auto;
 }
 
-
 #bd,
 #ezwt {
     width:770px;
+}
+
+
+/* Dunno why */
+div.popupmenu {
+    visibility:visible;
+    display:none;
 }

@@ -7,7 +7,7 @@
 <link rel="Shortcut icon" href={"favicon.ico"|ezimage} type="image/x-icon" />
 {*<link rel="Copyright" href={"/ezinfo/copyright"|ezurl} />
 <link rel="Author" href={"/ezinfo/about"|ezurl} />*}
-{if and( is_set($module_result.content_info), is_set($module_result.content_info.url_alias) )}
+{if and( is_set($module_result.uri), is_set($module_result.content_info), is_set($module_result.content_info.url_alias) )}
 	{def $canonical_node=fetch( 'content', 'node', hash( 'node_id', $module_result.node_id ) )}
 	{if or( $module_result.content_info.url_alias|ne($module_result.uri), $canonical_node.node_id|ne($canonical_node.object.main_node_id) ) }
 	<link rel="canonical" href={$canonical_node.object.main_node.url_alias|ezurl(,'full')} />

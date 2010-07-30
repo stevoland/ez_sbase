@@ -2,7 +2,7 @@
 
 [eZJSCore]
 # enabled / disabled loading the files from external servers
-LoadFromCDN=disabled
+LoadFromCDN=enabled
 
 [Packer]
 AppendLastModifiedTime=enabled
