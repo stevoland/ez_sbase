@@ -2,24 +2,24 @@
 
 # Settings related to Website Toolbar
 [WebsiteToolbarSettings]
-HideODF=enabled
+#HideODF=enabled
 
 [CustomTemplateSettings]
-CustomTemplateList[]=global
-CustomTemplateList[]=setup
-CustomTemplateList[]=analytics
-CustomTemplateList[]=newsletter
-CustomTemplateList[]=shop
-CustomTemplateList[]=adminsearch
+#CustomTemplateList[]=global
+#CustomTemplateList[]=setup
+#CustomTemplateList[]=analytics
+#CustomTemplateList[]=newsletter
+#CustomTemplateList[]=shop
+#CustomTemplateList[]=adminsearch
 
-CustomEditTemplateList[]
+#CustomEditTemplateList[]
 
-IncludeInView[global]=*
-IncludeInView[setup]=*
-IncludeInView[newsletter]=*
-IncludeInView[shop]=*
-IncludeInView[adminsearch]=*
-IncludeInView[analytics]=*
+#IncludeInView[global]=*
+#IncludeInView[setup]=*
+#IncludeInView[newsletter]=*
+#IncludeInView[shop]=*
+#IncludeInView[adminsearch]=*
+#IncludeInView[analytics]=*
 
 #[NewsletterToolbar]
 #DefaultNewsletterTypeId=5
