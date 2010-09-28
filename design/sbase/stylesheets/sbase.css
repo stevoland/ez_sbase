@@ -259,6 +259,10 @@ select#ezwt-create
     z-index:5;
 }
 
+#toolbar select, #toolbar input {
+  vertical-align:top;
+}
+
 .ezwt-left
 {
     display:inline;

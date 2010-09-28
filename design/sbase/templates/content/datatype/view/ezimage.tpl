@@ -70,7 +70,7 @@ Input:
     {/switch}
 
     {if $css_class}
-    	{if $inline|not}
+    	{if or(is_unset($inline), $inline|not)}
        		<div class="{$css_class|wash}">
        	{else}
     		<span class="{$css_class|wash}">
@@ -101,7 +101,7 @@ Input:
     {/if}
 
     {if $css_class}
-    	{if $inline|not}
+    	{if or(is_unset($inline), $inline|not)}
     		</div>
        	{else}
     		</span>

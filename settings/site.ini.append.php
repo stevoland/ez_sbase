@@ -38,7 +38,7 @@ LogoutRedirect=/
 
 [URLTranslator]
 Extensions[]=_sbase
-FilterClasses[]=sURLAliasFilterLowerCase
+#FilterClasses[]=sURLAliasFilterLowerCase
 
 [RegionalSettings]
 TranslationExtensions[]=_sbase

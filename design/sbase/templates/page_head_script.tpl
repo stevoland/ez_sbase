@@ -1,4 +1,4 @@
-{ezscript('head/head.js', 'text/javascript', '')}
+{ezscript('html5boilerplate/modernizr-1.5.min.js', 'text/javascript', '')}
 <!--[if IE 6]>
 	{ezscript( array('pngfix/pngfix.js'), 'text/javascript', '' )}
 	<script type="text/javascript">
