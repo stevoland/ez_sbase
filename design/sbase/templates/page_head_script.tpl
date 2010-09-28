@@ -19,7 +19,7 @@
 	</script>
 <![endif]-->
 
-{ezscript_load( array( 'ezjsc::jquery', 'ezjsc::jqueryio' ) )}
+{* ezscript_load( array( 'ezjsc::jquery', 'ezjsc::jqueryio' ) ) *}
 
 {include uri='design:page_head_styleeditor.tpl'}
 
