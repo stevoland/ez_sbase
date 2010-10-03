@@ -13,6 +13,8 @@ PreferredLibrary=yui3
 # List of external JavaScript libraries with their CDN URL
 ExternalScripts[yui3]=http://yui.yahooapis.com/combo?3.2.0/build/yui/yui-min.js&3.2.0/build/loader/loader-min.js
 
+ExternalScripts[jquery]=jquery-1.4.2.min.js
+
 [Packer]
 AppendLastModifiedTime=enabled
 
