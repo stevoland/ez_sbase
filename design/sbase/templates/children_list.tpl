@@ -23,7 +23,7 @@
     {let child_name=$Nodes.item.name|wash
          node_name=$node.name}
 
-        <tr class="{$Nodes.sequence}  ezwt-sort-drag-handler">
+        <tr class="{$Nodes.sequence}  ezwt-sort-dragable">
 
         {* Remove checkbox *}
         <td>
