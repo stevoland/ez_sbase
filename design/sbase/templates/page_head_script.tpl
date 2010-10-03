@@ -19,7 +19,9 @@
 	</script>
 <![endif]-->
 
-{* ezscript_load( array( 'ezjsc::jquery', 'ezjsc::jqueryio' ) ) *}
+{if and($current_user.is_logged_in, fetch( 'user', 'has_access_to', hash( 'module', 'websitetoolbar', 'function', 'use' ) ) ) }
+	{ezscript_load( array( 'ezjsc::jquery', 'ezjsc::jqueryio' ) ) }
+{/if}
 
 {include uri='design:page_head_styleeditor.tpl'}
 
