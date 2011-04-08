@@ -7,4 +7,7 @@ $eZTemplateOperatorArray[] = array( 'script' => 'extension/_sbase/autoloads/spdf
 $eZTemplateOperatorArray[] = array( 'script' => 'extension/_sbase/autoloads/tidyoutputoperator.php',
                                     'class' => 'sTidyOutputOperator',
                                     'operator_names' => array( 'tidy_output') );
+$eZTemplateOperatorArray[] = array( 'script' => 'extension/_sbase/autoloads/sessionsetoperator.php',
+                                    'class' => 'sSessionSetOperator',
+                                    'operator_names' => array( 'session_set') );
 ?>

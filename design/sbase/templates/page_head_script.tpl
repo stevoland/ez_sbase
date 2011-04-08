@@ -1,4 +1,4 @@
-{ezscript('head/head.js', 'text/javascript', '')}
+{ezscript('html5boilerplate/modernizr-1.5.min.js', 'text/javascript', '')}
 <!--[if IE 6]>
 	{ezscript( array('pngfix/pngfix.js'), 'text/javascript', '' )}
 	<script type="text/javascript">
@@ -18,6 +18,12 @@
 	{/literal}
 	</script>
 <![endif]-->
+
+{if and($current_user.is_logged_in, fetch( 'user', 'has_access_to', hash( 'module', 'websitetoolbar', 'function', 'use' ) ) ) }
+	{ezscript_load( array( 'ezjsc::jquery', 'ezjsc::jqueryio' ) ) }
+{/if}
+
+{include uri='design:page_head_styleeditor.tpl'}
 
 {if and($current_user.is_logged_in, fetch( 'user', 'has_access_to', hash( 'module', 'websitetoolbar', 'function', 'use' ) ) ) }
 	{def $webin_scripts=ezini( 'WebinJavaScriptSettings', 'JavaScriptList', 'sbase.ini' )|unique}

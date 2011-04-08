@@ -1,23 +1,7 @@
 {default enable_help=true() enable_link=true()}
 
-{literal}
-<script type="text/javascript">
-(function(ns){
-  var hash = ns.location.hash;
-    if ( hash.indexOf('#') === 0 )
-      hash = hash.substring(1);
-    var parts = hash.split('&');
-    for ( var i=0, len = parts.length; i<len; i++ )
-    {
-      if ( parts[i].indexOf('p=/') === 0 || parts[i].indexOf('p=%2F') === 0 )
-      {
-        var url = ns.location.protocol + '//' + ns.location.host + decodeURIComponent( parts[i].substring(2) );
-        ns.location.replace(url);
-      }
-    }
-})(this);
-</script>
-{/literal}
+  <meta charset="utf-8">
+  <!--[if IE]><![endif]-->
 
 {def $site_title=''}
 {if is_set($pagedata.persistent_variable.site_title)}
@@ -48,6 +32,9 @@
 {/if}
     <title>{$site_title}</title>
 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+
     {*if and(is_set($#Header:extra_data),is_array($#Header:extra_data))}
       {section name=ExtraData loop=$#Header:extra_data}
       {$:item}
@@ -58,7 +45,7 @@
 	
 
     {* check if we need a http-equiv refresh *}
-    {if $site.redirect}
+    {if and( is_set($site.redirect), is_object($site.redirect) ) }
     	<meta http-equiv="Refresh" content="{$site.redirect.timer}; URL={$site.redirect.location}" />
 
     {/if}
@@ -76,8 +63,8 @@
 	    {if is_set($meta.description)}
 	    <meta name="description" content="{$meta.description|wash}" />
 	    {/if}
-	{else} 
-	{foreach $site.meta as $key => $item}
+	{elseif is_set($meta)}
+	  {foreach $site.meta as $key => $item}
     	{if is_set( $module_result.content_info.persistent_variable[$key] )}
         <meta name="{$key|wash}" content="{$module_result.content_info.persistent_variable[$key]|wash}" />
     	{else}
@@ -96,3 +83,22 @@
 {/if}
 
 {/default}
+
+{literal}
+<script type="text/javascript">
+(function(ns){
+  var hash = ns.location.hash;
+    if ( hash.indexOf('#') === 0 )
+      hash = hash.substring(1);
+    var parts = hash.split('&');
+    for ( var i=0, len = parts.length; i<len; i++ )
+    {
+      if ( parts[i].indexOf('p=/') === 0 || parts[i].indexOf('p=%2F') === 0 )
+      {
+        var url = ns.location.protocol + '//' + ns.location.host + decodeURIComponent( parts[i].substring(2) );
+        ns.location.replace(url);
+      }
+    }
+})(this);
+</script>
+{/literal}

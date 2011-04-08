@@ -103,6 +103,18 @@
 	 		functions, 'user_settings,register_subscription,subscription_activate,read',
 	 		mode, 'site',
 	 		menu, $menu
+	 	),
+	 	hash(
+	 		module, 'styleeditor',
+	 		functions, 'visual',
+	 		mode, 'site',
+	 		menu, $menu
+	 	),
+	 	hash(
+	 		module, 'ezflow',
+	 		functions, 'timeline',
+	 		mode, 'site',
+	 		menu, $menu
 	 	)
 	 )
 }

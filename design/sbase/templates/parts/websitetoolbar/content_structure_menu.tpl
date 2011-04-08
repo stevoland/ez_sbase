@@ -2,6 +2,9 @@
    to allow the root node to be 1 (hardcoded) a line also needs to be added to index_treemenu.php
  *}
 {def $root_node_id=1}
+{if is_unset( $menu_persistence )}
+    {def $menu_persistence = true}
+{/if}
 {if and( is_set($pagedata.persistent_variable.ui_context), $pagedata.persistent_variable.ui_context|eq('browse') ) }
     {set $ui_context='browse'}
 {/if}
@@ -10,6 +13,9 @@
 {/if}
 {if is_set( $custom_root_node_id )}
     {set $root_node_id=$custom_root_node_id}
+{/if}
+{if is_unset( $hide_node_list )}
+    {def $hide_node_list = array()}
 {/if}
 {def $root_node=fetch('content','node',hash('node_id',$root_node_id))
      $user_class_group_id=ezini('ClassGroupIDs', 'Users', 'content.ini')
@@ -20,21 +26,19 @@
      $ignored_nodes_list=ezini('TreeMenu','IgnoredNodeList','contentstructuremenu.ini')
     }
 
-{def $click_action=ezini('TreeMenu','ItemClickAction','contentstructuremenu.ini')}
+{def $click_action = ezini('TreeMenu','ItemClickAction','contentstructuremenu.ini')}
 {if and( is_set( $csm_menu_item_click_action ), $click_action|not )}
-    {set $click_action=$csm_menu_item_click_action}
+    {set $click_action = $csm_menu_item_click_action}
 {/if}
 
 {if $click_action}
-    {set $click_action=$click_action|ezurl(no)}
+    {set $click_action = $click_action|ezurl(no)}
 {/if}
 
 {def $tmp_scripts = array("lib/ezjslibcookiesupport.js")}
 {if ezini('TreeMenu','PreloadClassIcons','contentstructuremenu.ini')|eq('enabled')}
     {set $tmp_scripts=$tmp_scripts|append("lib/ezjslibimagepreloader.js") }
 {/if}
-{set $tmp_scripts=$tmp_scripts|append("yui/2.5.2/build/utilities/utilities.js",
-				                    "yui/2.5.2/build/json/json-min.js") }
 {ezscript( $tmp_scripts, 'text/javascript', '' )}
 {undef $tmp_scripts}
 
@@ -42,51 +46,27 @@
 {literal}
 <script type="text/javascript">
 <!--
-
-if( !Array.prototype.inArray )
+function ContentStructureMenu( path, persistent )
 {
-    Array.prototype.inArray = function( value )
-    {
-        for ( var i = 0; i < this.length; i++ )
-        {
-            if ( this[i] == value )
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-}
-
-Array.prototype.removeFirst = function( value )
-{
-    for ( var i = 0; i < this.length; i++ )
-    {
-        if ( this[i] == value )
-        {
-            this.splice( i, 1 );
-            return true;
-        }
-    }
-
-    return false;
-}
-
-function ContentStructureMenu()
-{
-    this.cookieName = "contentStructureMenu";
+    this.cookieName     = "contentStructureMenu";
     this.cookieValidity = 3650; // days
-    this.cookie = ezjslib_getCookie( this.cookieName );
-    this.open = ( this.cookie )? this.cookie.split( '/' ): [];
+    this.useCookie      = persistent;
+    this.cookie         = this.useCookie ? _getCookie( this.cookieName ) : '';
+    this.open           = ( this.cookie )? this.cookie.split( '/' ): [];
+    this.autoOpenPath   = path;
 {/literal}
 
+{default current_user=fetch('user','current_user')}
+    this.perm = "{concat($current_user.role_id_list|implode(','),'|',$current_user.limited_assignment_value_list|implode(','))|md5}";
+{/default}
+
+    this.expiry = "{fetch('content','content_tree_menu_expiry')}";
     this.action = "{$click_action}";
     this.context = "{$ui_context}";
-    this.expiry = "{fetch('content','content_tree_menu_expiry')}";
-    this.ignoredNodeList = [{foreach $ignored_nodes_list as $node_id}{$node_id}{delimiter},{/delimiter}{/foreach}];
+    this.hideNodes = [{$hide_node_list|implode(',')}];
     this.stevoIcon = {"images/websitetoolbar/stevoicon.gif"|ezdesign};
 
-{cache-block keys=array( $filter_type ) expiry="0" ignore_content_expiry}
+{cache-block keys=array( $filter_type, $root_node_id|gt( 1 ) ) expiry=0 ignore_content_expiry}
     this.languages = {*
         *}{ldelim}{*
             *}{foreach fetch('content','translation_list') as $language}{*
@@ -105,71 +85,84 @@ function ContentStructureMenu()
 {def $iconInfo = icon_info('class')
      $classIconsSize = ezini('TreeMenu','ClassIconsSize','contentstructuremenu.ini')}
 
-    this.iconsList = new Array();
+    this.iconsList   = [];
     var wwwDirPrefix = "{ezsys('wwwdir')}/{$iconInfo.theme_path}/{$iconInfo.size_path_list[$classIconsSize]}/";
+
     {foreach $iconInfo.icons as $class => $icon}{*
         *}this.iconsList['{$class}'] = wwwDirPrefix + "{$icon}";
     {/foreach}
+
     this.iconsList['__default__'] = wwwDirPrefix + "{$iconInfo.default}";
+
     {if ezini('TreeMenu','PreloadClassIcons','contentstructuremenu.ini')|eq('enabled')}
     ezjslib_preloadImageList( this.iconsList );
     {/if}
 
-    this.showTips = {if ezini('TreeMenu','ToolTips','contentstructuremenu.ini')|eq('enabled')}true{else}false{/if};
+    this.showTips       = {if ezini('TreeMenu','ToolTips','contentstructuremenu.ini')|eq('enabled')}true{else}false{/if};
     this.createHereMenu = "{ezini('TreeMenu','CreateHereMenu','contentstructuremenu.ini')}";
-    this.autoOpen = {if ezini('TreeMenu','AutoopenCurrentNode','contentstructuremenu.ini')|eq('enabled')}true{else}false{/if};
-{/cache-block}
-
-
-{default current_user=fetch('user','current_user')}
-    this.perm = "{concat($current_user.role_id_list|implode(','),'|',$current_user.limited_assignment_value_list|implode(','))|md5}";
-{/default}
+    this.autoOpen       = {if ezini('TreeMenu','AutoopenCurrentNode','contentstructuremenu.ini')|eq('enabled')}true{else}false{/if};
 
 {literal}
     this.updateCookie = function()
     {
+        if ( !this.useCookie )
+            return; 
         this.cookie = this.open.join('/');
-        expireDate = new Date();
+        expireDate  = new Date();
         expireDate.setTime( expireDate.getTime() + this.cookieValidity * 86400000 );
-        ezjslib_setCookie( this.cookieName, this.cookie, expireDate );
+        _setCookie( this.cookieName, this.cookie, expireDate );
+    };
+
+    // cookie functions
+    function _setCookie( name, value, expires, path )
+    {
+        document.cookie = name + '=' + escape(value) + ( expires ? '; expires=' + expires.toUTCString(): '' ) + '; path='+ (path ? path : '/');
+    }
+
+    function _getCookie( name )
+    {
+        var n = name + '=', c = document.cookie, start = c.indexOf( n ), end = c.indexOf( ";", start );
+        if ( start !== -1 )
+        {
+            return unescape( c.substring( start + n.length, ( end === -1 ? c.length : end ) ) );
+        }
+        return null;
+    }
+
+    function _delCookie( name )
+    {
+        _setCookie( name, '', ( new Date() - 86400000 ) );
     }
 
     this.setOpen = function( nodeID )
     {
-        if ( this.open.inArray( nodeID ) )
+        if ( jQuery.inArray( '' + nodeID, this.open ) !== -1 )
         {
             return;
         }
         this.open[this.open.length] = nodeID;
         this.updateCookie();
-    }
+    };
 
     this.setClosed = function( nodeID )
     {
-        if ( this.open.removeFirst( nodeID ) )
+        var openIndex = jQuery.inArray( '' + nodeID, this.open );
+        if ( openIndex !== -1 )
         {
+                this.open.splice( openIndex, 1 );
             this.updateCookie();
         }
-    }
+    };
     
     this.generateTopLevelEntry = function( item )
     {
         var html = '<li id="n'+item.node_id+'" >';
-        /*html += '<a class="openclose-open" id="a'
-                + item.node_id
-                + '" href="#" onclick="this.blur(); return treeMenu.load( this, '
-                + item.node_id
-                + ', '
-                + item.modified_subnode
-                +' )"></a>';*/
 
         var languages = "[]";
         var canCreateClasses = false;
         var classes = "[]";
 
         var icon = this.iconsList['__default__'];
-        //if ( this.context != 'browse' )
-        //{
             html += '<a id="superroot" class="nodeicon" href="#" onclick="this.blur(); return treeMenu.load( this, '
                 + item.node_id
                 + ', '
@@ -177,14 +170,7 @@ function ContentStructureMenu()
                 +' )"><img src="'
                 + this.stevoIcon
                 + '" alt="" title="Toggle content structure" /></a>';
-        //}
-        /*else
-        {
-            html += '<img src="'
-                + icon
-                + '" alt="" />';
-	        }*/
-        html += '<div id="c'
+    	html += '<div id="c'
             + item.node_id
             + '"></div>';
         html += '</li>';
@@ -194,15 +180,12 @@ function ContentStructureMenu()
 
     this.generateEntry = function( item, lastli, rootNode )
     {
-    	if ( this.ignoredNodeList.inArray(item.node_id) )
-    		return '';
-    	
         var liclass = '';
         if ( lastli )
         {
             liclass += ' lastli';
         }
-        if ( path && ( path[path.length-1] == item.node_id || ( !item.has_children && path.inArray( item.node_id ) ) ) )
+        if ( path && ( path[path.length-1] == item.node_id || ( !item.has_children && jQuery.inArray( item.node_id, path ) !== -1 ) ) )
         {
             liclass += ' currentnode';
         }
@@ -218,7 +201,7 @@ function ContentStructureMenu()
                 + item.node_id
                 + ', '
                 + item.modified_subnode
-                +' )"></a>';
+                +' )"><\/a>';
         }
 
         var languages = "[";
@@ -309,7 +292,7 @@ function ContentStructureMenu()
                 + '" alt="" title="['
                 + this.classes[item.class_id].name.replace(/>/g,'&gt;').replace(/"/g, '&quot;')
 {/literal}
-                + '] {"Click on the icon to display a context-sensitive menu."|i18n('design/admin/contentstructuremenu')|wash(xhtml)|wash(javascript)}" /></a>';
+                + '] {"Click on the icon to display a context-sensitive menu."|i18n('design/admin/contentstructuremenu')|wash(xhtml)|wash(javascript)}" /><\/a>';
 {literal}
         }
         else
@@ -328,7 +311,9 @@ function ContentStructureMenu()
 {/literal}
             html += ' title="{"Node ID"|i18n('design/admin/contentstructuremenu')|wash(xhtml)|wash(javascript)}: '
                 + item.node_id
-                + ' {"Visibility"|i18n('design/admin/contentstructuremenu')|wash(xhtml)|wash(javascript)}: '
+                + ', {"Object ID"|i18n('design/admin/contentstructuremenu')|wash(xhtml)|wash(javascript)}: '
+                + item.object_id
+                + ', {"Visibility"|i18n('design/admin/contentstructuremenu')|wash(xhtml)|wash(javascript)}: '
                 + ( ( item.is_hidden )? '{"Hidden"|i18n('design/admin/contentstructuremenu')|wash(xhtml)|wash(javascript)}':
                                         ( item.is_invisible )? '{"Hidden by superior"|i18n('design/admin/contentstructuremenu')|wash(xhtml)|wash(javascript)}':
                                                                '{"Visible"|i18n('design/admin/contentstructuremenu')|wash(xhtml)|wash(javascript)}' )
@@ -342,31 +327,29 @@ function ContentStructureMenu()
                                                            'normal' )
             + '">'
             + item.name
-            + '</span>';
+            + '<\/span>';
 
         if ( item.is_hidden )
         {
 {/literal}
-            html += '<span class="node-hidden"> ({"Hidden"|i18n('design/admin/contentstructuremenu')|wash(xhtml)|wash(javascript)})</span>';
+            html += '<span class="node-hidden"> ({"Hidden"|i18n('design/admin/contentstructuremenu')|wash(xhtml)|wash(javascript)})<\/span>';
 {literal}
         }
         else if ( item.is_invisible )
         {
 {/literal}
-            html += '<span class="node-hiddenbyparent"> ({"Hidden by superior"|i18n('design/admin/contentstructuremenu')|wash(xhtml)|wash(javascript)})</span>';
+            html += '<span class="node-hiddenbyparent"> ({"Hidden by superior"|i18n('design/admin/contentstructuremenu')|wash(xhtml)|wash(javascript)})<\/span>';
 {literal}
         }
 
-        html += '</a>';
+        html += '<\/a>';
         html += '<div id="c'
-            + item.node_id
-            + '"></div>';
-        html += '</li>';
+             + item.node_id
+             + '"><\/div>';
+        html += '<\/li>';
 
         return html;
-    }
-    
-    
+    };
 
     this.load = function( aElement, nodeID, modifiedSubnode )
     {
@@ -423,28 +406,26 @@ function ContentStructureMenu()
 
         var thisThis = this;
 
-        var callbacks = {
-
-            result: false,
-
-            success: function(o)
-            {
-                try 
+        var request = jQuery.ajax({
+            'url': url,
+            'dataType': 'json',
+            'success': function( data, textStatus )
+            {             
+                var html = '<ul>', items = [];
+                // Filter out nodes to hide
+                for ( var i = 0, l = data.children_count; i < l; i++ )
                 {
-                    result = YAHOO.lang.JSON.parse(o.responseText);
+                    if ( jQuery.inArray( data.children[i].node_id, thisThis.hideNodes ) === -1 )
+                    {
+                        items.push( data.children[i] );
+                    }
                 }
-                catch (x) 
+                // Generate html content
+                for ( var i = 0, l = items.length; i < l; i++ )
                 {
-                    return false;
+                    html += thisThis.generateEntry( items[i], i == l - 1, false );
                 }
-                
-                var html = '<ul>';
-                for ( var i = 0; i < result.children.length; i++ )
-                {
-                    var item = result.children[i];
-                    html += thisThis.generateEntry( item, i == result.children.length - 1, false );
-                }
-                html += '</ul>';
+                html += '<\/ul>';
 
                 divElement.innerHTML += html;
                 divElement.className = 'loaded';
@@ -458,13 +439,13 @@ function ContentStructureMenu()
                 
                 return;
             },
-
-            failure: function(o) {
+            'error': function( xhr, textStatus, errorThrown )
+            {
                 if ( aElement )
                 {
                     aElement.className = 'openclose-error';
 
-                    switch( o.status )
+                    switch( xhr.status )
                     {
                         case 403:
                         {
@@ -493,14 +474,11 @@ function ContentStructureMenu()
                     }
                 }
             }
-        }
-
-        var request = YAHOO.util.Connect.asyncRequest('GET', url, callbacks);
+        });
 
         return false;
-    }
+    };
 
-    
     this.openUnder = function( parentNodeID )
     {
         var divElement = document.getElementById( 'c' + parentNodeID );
@@ -521,13 +499,13 @@ function ContentStructureMenu()
             var liCandidate = children[i];
             if ( liCandidate.nodeType == 1 && liCandidate.id )
             {
-                var nodeID = parseInt( liCandidate.id.substr( 1 ) );
-                if ( this.autoOpen && autoOpenPath.inArray( nodeID ) )
+                var nodeID = liCandidate.id.substr( 1 ), openIndex = jQuery.inArray( nodeID, this.autoOpenPath );
+                if ( this.autoOpen && openIndex !== -1 )
                 {
-                    autoOpenPath.removeFirst( nodeID );
+                    this.autoOpenPath.splice( openIndex, 1 );
                     this.setOpen( nodeID );
                 }
-                if ( this.open.inArray( nodeID ) )
+                if ( jQuery.inArray( nodeID, this.open ) !== -1 )
                 {
                     var aElement = document.getElementById( 'a' + nodeID );
                     if ( aElement )
@@ -537,7 +515,7 @@ function ContentStructureMenu()
                 }
             }
         }
-    }
+    };
 
     this.collapse = function( parentNodeID )
     {
@@ -553,7 +531,7 @@ function ContentStructureMenu()
             var aElement = aElements[index];
             if ( aElement.className == 'openclose-close' )
             {
-                var nodeID = aElement.id.substr( 1 );
+                var nodeID        = aElement.id.substr( 1 );
                 var subdivElement = document.getElementById( 'c' + nodeID );
                 if ( subdivElement )
                 {
@@ -568,24 +546,30 @@ function ContentStructureMenu()
         if ( aElement )
         {
             divElement.className = 'hidden';
-            aElement.className = 'openclose-open';
+            aElement.className   = 'openclose-open';
             this.setClosed( parentNodeID );
         }
-    }
+    };
 }
 
 // -->
 </script>
 {/literal}
+{/cache-block}
 
 <script type="text/javascript">
 <!--
-    var path = [{if is_set($module_result.node_id)}{foreach $module_result.path as $element}{$element.node_id}{delimiter}, {/delimiter}{/foreach}{/if}];
-    var autoOpenPath = path;
+var treeMenu;
+(function(){ldelim}
+    var path         = [{if is_set( $module_result.path[0].node_id)}{foreach $module_result.path as $element}'{$element.node_id}'{delimiter}, {/delimiter}{/foreach}{/if}];
+    var persistence  = {if $menu_persistence}true{else}false{/if};
+    treeMenu         = new ContentStructureMenu( path, persistence );
 
-    var treeMenu = new ContentStructureMenu();
-
-{cache-block keys=$root_node_id expiry="0"}
+{cache-block keys=$root_node_id expiry=0}
+    {def $root_node_url = $root_node.url}
+    {if $root_node_url|eq('')}
+        {set $root_node_url = concat( 'content/view/full/', $root_node_id )}
+    {/if}
 
     var rootNode = {ldelim}{*
         *}"node_id":{$root_node_id},{*
@@ -594,7 +578,8 @@ function ContentStructureMenu()
     document.writeln( '<ul id="content_tree_menu">' );
     document.writeln( treeMenu.generateTopLevelEntry( rootNode ) );
     
-    document.writeln( '</ul>' );
+    document.writeln( '<\/ul>' );
+{rdelim})();
 {/cache-block}
 
 // -->

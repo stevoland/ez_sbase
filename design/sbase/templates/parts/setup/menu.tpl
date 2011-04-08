@@ -16,9 +16,9 @@
         {/if}
         </div>
     </li>
-    {if ezmodule('survey')}
+    {* if ezmodule('survey')}
         <li><div><span class="disabled">{'Surveys'|i18n( 'design/admin/parts/setup/menu' )}</span></div></li>
-    {/if}
+    {/if *}
     {* if ezmodule('ezfind')}
         <li><div><span class="disabled">{'Search elevation'|i18n( 'design/admin/parts/setup/menu' )}</span></div></li>
     {/if *}
@@ -40,9 +40,9 @@
         </ul>
         {/if}
     </div></li>
-    {if ezmodule('survey')}
+    {* if ezmodule('survey')}
         <li><div><a href={'/survey/list/'|ezurl}>{'Surveys'|i18n( 'design/admin/parts/setup/menu' )}</a></div></li>
-    {/if}
+    {/if *}
     {* if ezmodule('ezfind')}
         <li><div><a href={'/ezfind/elevate'|ezurl}>{'Search elevation'|i18n( 'design/admin/parts/setup/menu' )}</a></div></li>
     {/if *}

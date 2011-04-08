@@ -5,12 +5,15 @@
 #HideODF=enabled
 
 [CustomTemplateSettings]
-#CustomTemplateList[]=detail
+#CustomTemplateList[]=global
+#CustomTemplateList[]=setup
 #CustomTemplateList[]=analytics
+#CustomTemplateList[]=newsletter
+#CustomTemplateList[]=shop
+#CustomTemplateList[]=adminsearch
 
 #CustomEditTemplateList[]
 
-#IncludeInView[detail]=full
 #IncludeInView[global]=*
 #IncludeInView[setup]=*
 #IncludeInView[newsletter]=*

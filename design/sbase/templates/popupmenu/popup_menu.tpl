@@ -179,7 +179,8 @@ menuArray['SubitemsContextMenu']['elements']['child-menu-create-here']['disabled
 {* Forms used by the various elements *}
 
 {* Create here. *}
-<form id="menu-form-create-here" method="post" action={"/content/action"|ezurl}>
+<form class="popupmenu-form" id="menu-form-create-here" method="post" action={"/content/action"|ezurl}>
+<fieldset>
   <input type="hidden" name="NewButton" value="x" />
   <input type="hidden" name="ContentNodeID" value="%nodeID%" />
   <input type="hidden" name="NodeID" value="%nodeID%" />
@@ -188,72 +189,89 @@ menuArray['SubitemsContextMenu']['elements']['child-menu-create-here']['disabled
   <input type="hidden" name="ViewMode" value="full" />
   <legend></legend>
   {*<input type="hidden" name="ContentLanguageCode" value="eng-GB" />*}
+</fieldset>
 </form>
 
 {* Add bookmark. *}
-<form id="menu-form-addbookmark" method="post" action={"/content/action"|ezurl}>
+<form class="popupmenu-form" id="menu-form-addbookmark" method="post" action={"/content/action"|ezurl}>
+<fieldset>
   <input type="hidden" name="ContentNodeID" value="%nodeID%" />
   <input type="hidden" name="ActionAddToBookmarks" value="x" />
   <legend></legend>
+</fieldset>
 </form>
 
 {* Remove bookmark *}
-<form id="menu-form-removebookmark" method="post" action={"/content/bookmark"|ezurl}>
+<form class="popupmenu-form" id="menu-form-removebookmark" method="post" action={"/content/bookmark"|ezurl}>
+<fieldset>
   <input type="hidden" name="DeleteIDArray[]" value="%bookmarkID%" />
   <input type="hidden" name="RemoveButton" value="x" />
   <input type="hidden" name="NeedRedirectBack" value="x" />
   <legend></legend>
+</fieldset>
 </form>
 
 {* Remove node. *}
-<form id="menu-form-remove" method="post" action={"/content/action"|ezurl}>
+<form class="popupmenu-form" id="menu-form-remove" method="post" action={"/content/action"|ezurl}>
+<fieldset>
   <input type="hidden" name="TopLevelNode" value="%nodeID%" />
   <input type="hidden" name="ContentNodeID" value="%nodeID%" />
   <input type="hidden" name="ContentObjectID" value="%objectID%" />
   <input type="hidden" name="ActionRemove" value="x" />
   <legend></legend>
+</fieldset>
 </form>
 
 {* Move node. *}
-<form id="menu-form-move" method="post" action={"/content/action"|ezurl}>
+<form class="popupmenu-form" id="menu-form-move" method="post" action={"/content/action"|ezurl}>
+<fieldset>
   <input type="hidden" name="TopLevelNode" value="%nodeID%" />
   <input type="hidden" name="ContentNodeID" value="%nodeID%" />
   <input type="hidden" name="ContentObjectID" value="%objectID%" />
   <input type="hidden" name="MoveNodeButton" value="x" />
   <legend></legend>
+</fieldset>
 </form>
 
 {* Swap node *}
-<form id="menu-form-swap" method="post" action={"/content/action"|ezurl}>
+<form class="popupmenu-form" id="menu-form-swap" method="post" action={"/content/action"|ezurl}>
+<fieldset>
   <input type="hidden" name="TopLevelNode" value="%nodeID%" />
   <input type="hidden" name="ContentNodeID" value="%nodeID%" />
   <input type="hidden" name="ContentObjectID" value="%objectID%" />
   <input type="hidden" name="SwapNodeButton" value="x" />
   <legend></legend>
+</fieldset>
 </form>
 
 
 {* Add to notifications. *}
-<form id="menu-form-notify" method="post" action={"/content/action"|ezurl}>
+<form class="popupmenu-form" id="menu-form-notify" method="post" action={"/content/action"|ezurl}>
+<fieldset>
   <input type="hidden" name="ContentNodeID" value="%nodeID%" />
   <input type="hidden" name="ActionAddToNotification" value="x" />
   <legend></legend>
+</fieldset>
 </form>
 
 {* Delete view cache for node. *}
-<form id="menu-form-view-cache-delete" method="post" action={"/content/action"|ezurl}>
+<form class="popupmenu-form" id="menu-form-view-cache-delete" method="post" action={"/content/action"|ezurl}>
+<fieldset>
   <input type="hidden" name="NodeID" value="%nodeID%" />
   <input type="hidden" name="ObjectID" value="%objectID%" />
   <input type="hidden" name="CurrentURL" value="%currentURL%" />
   <input type="hidden" name="ClearViewCacheButton" value="x" />
   <legend></legend>
+</fieldset>
 </form>
 
 {* Delete view cache for subtree. *}
-<form id="menu-form-recursive-view-cache-delete" method="post" action={"/content/action"|ezurl}>
+<form class="popupmenu-form" id="menu-form-recursive-view-cache-delete" method="post" action={"/content/action"|ezurl}>
+<fieldset>
   <input type="hidden" name="NodeID" value="%nodeID%" />
   <input type="hidden" name="ObjectID" value="%objectID%" />
   <input type="hidden" name="CurrentURL" value="%currentURL%" />
   <input type="hidden" name="ClearViewCacheSubtreeButton" value="x" />
   <legend></legend>
+</fieldset>
 </form>

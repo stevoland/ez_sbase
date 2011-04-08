@@ -36,4 +36,16 @@ SessionNameHandler=custom
 [UserSettings]
 LogoutRedirect=/
 
+[URLTranslator]
+Extensions[]=_sbase
+#FilterClasses[]=sURLAliasFilterLowerCase
+
+[RegionalSettings]
+TranslationExtensions[]=_sbase
+
+[RegionalSettings]
+TextTranslation=enabled
+
+
+
 */ ?>
