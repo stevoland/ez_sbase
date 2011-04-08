@@ -37,6 +37,18 @@
         display: none; /* Hide elments not wanted on a printed page */
     }
 
+    .noprint {
+        display:none !important;
+    }
+
+    .unit.printfull {
+        width:auto !important;
+    }
+
+    .main {
+        padding:0;
+    }
+
     body, div#page, div#header, div#main
     {   
         background-color: transparent;

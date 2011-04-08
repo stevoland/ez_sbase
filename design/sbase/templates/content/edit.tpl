@@ -53,14 +53,16 @@
     <input class="button" type="submit" name="DiscardButton" value="{'Discard draft'|i18n( 'design/ezwebin/content/edit' )}" />
     <input type="hidden" name="DiscardConfirm" value="0" />
     
-    {def $redirectUrl=ezhttp( 'LastAccessesURI', 'session' )}
-    {if $redirectUrl|contains('/advancedsearch/')}
-        {set $redirectUrl=ezhttp( 'sBaseLastAccessesURI', 'session' )}
+    {if ezhttp_hasvariable( 'LastAccessesURI', 'session' )}
+        {def $redirectUrl=ezhttp( 'LastAccessesURI', 'session' )}
+        {if $redirectUrl|contains('/advancedsearch/')}
+            {set $redirectUrl=ezhttp( 'sBaseLastAccessesURI', 'session' )}
+        {/if}
+        <input type="hidden" name="RedirectIfDiscarded" value="{$redirectUrl}" />
+        <input type="hidden" name="RedirectURIAfterPublish" value="{$redirectUrl}" />
+        {undef $redirectUrl}
+        </div>
     {/if}
-    <input type="hidden" name="RedirectIfDiscarded" value="{$redirectUrl}" />
-    <input type="hidden" name="RedirectURIAfterPublish" value="{$redirectUrl}" />
-    {undef $redirectUrl}
-    </div>
     
     {section show=and( or( ezpreference( 'admin_edit_show_locations' ),
                   count( $invalid_node_assignment_list )|gt(0) ), $location_ui_enabled )}

@@ -44,7 +44,6 @@ div#logo
 
 div#usermenu
 {
-    background-image: url(../images/header_bg.png);
     background-position: top left;
     background-repeat: repeat-x;
     height: 25px;
@@ -52,7 +51,6 @@ div#usermenu
 
 div#languages
 {
-    background-image: url(../images/header_bg_left.png);
     background-position: bottom left;
     background-repeat: no-repeat;
     float: left;
@@ -74,7 +72,6 @@ div#languages a
 
 div#links
 {
-    background-image: url(../images/header_bg_right.png);
     background-position: right bottom;
     background-repeat: no-repeat;
     float: right;
@@ -133,7 +130,6 @@ div#topmenu
 
 div#topmenu ul
 {
-    background-image: url(../images/topmenu_bg.png);
     margin: 0;
     padding: 0;
     list-style: none;
@@ -154,7 +150,6 @@ div#topmenu ul li
 div#topmenu ul li
 {
     font-weight: bold;
-    background-image: url(../images/topmenu_li_bg.png);
     background-position: center right;
     background-repeat: no-repeat;
 }
@@ -294,7 +289,6 @@ div.noextrainfo div#columns
 
 .leftCol ul.menu-list li a, .leftCol ul.submenu-list li a
 {
-    background-image: url(../images/sidemenu_bullet.png);
     background-position: 0.2em 0.5em;
     background-repeat: no-repeat;
     padding-left: 18px;
