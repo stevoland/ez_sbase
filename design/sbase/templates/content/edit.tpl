@@ -48,21 +48,16 @@
     {include uri='design:content/edit_attribute.tpl'}
 
     <div class="buttonblock">
-    <input class="defaultbutton" type="submit" name="PublishButton" value="{'Send for publishing'|i18n( 'design/ezwebin/content/edit' )}" />
-    <input class="button" type="submit" name="StoreButton" value="{'Store draft'|i18n( 'design/ezwebin/content/edit' )}" />
-    <input class="button" type="submit" name="DiscardButton" value="{'Discard draft'|i18n( 'design/ezwebin/content/edit' )}" />
-    <input type="hidden" name="DiscardConfirm" value="0" />
-    
-    {if ezhttp_hasvariable( 'LastAccessesURI', 'session' )}
-        {def $redirectUrl=ezhttp( 'LastAccessesURI', 'session' )}
-        {if $redirectUrl|contains('/advancedsearch/')}
-            {set $redirectUrl=ezhttp( 'sBaseLastAccessesURI', 'session' )}
-        {/if}
+        <input class="defaultbutton" type="submit" name="PublishButton" value="{'Send for publishing'|i18n( 'design/ezwebin/content/edit' )}" />
+        <input class="button" type="submit" name="StoreButton" value="{'Store draft'|i18n( 'design/ezwebin/content/edit' )}" />
+        <input class="button" type="submit" name="DiscardButton" value="{'Discard draft'|i18n( 'design/ezwebin/content/edit' )}" />
+        <input type="hidden" name="DiscardConfirm" value="0" />
+        
+        {* def $redirectUrl=ezhttp( 'sBaseLastAccessesURI', 'session' )}
         <input type="hidden" name="RedirectIfDiscarded" value="{$redirectUrl}" />
         <input type="hidden" name="RedirectURIAfterPublish" value="{$redirectUrl}" />
-        {undef $redirectUrl}
-        </div>
-    {/if}
+        {undef $redirectUrl *}
+    </div>
     
     {section show=and( or( ezpreference( 'admin_edit_show_locations' ),
                   count( $invalid_node_assignment_list )|gt(0) ), $location_ui_enabled )}
