@@ -2,7 +2,7 @@
 
 [eZJSCore]
 # enabled / disabled loading the files from external servers
-LoadFromCDN=enabled
+LoadFromCDN=disabled
 
 # Preferred Library (can be 'yui3' or 'jquery')
 # This is a preference hint to extensions that use ezjscore

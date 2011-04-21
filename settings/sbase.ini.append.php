@@ -46,4 +46,8 @@ JavaScriptList[]=tools/ezjsselection.js
 [AnalyticsSettings]
 #URL=https://www.google.com/analytics/reporting/content?id=2966907
 
+[NodeSettings]
+
+ContentRootNode=2
+
 */ >?

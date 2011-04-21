@@ -5,6 +5,7 @@
 #HideODF=enabled
 
 [CustomTemplateSettings]
+#CustomTemplateList[]=ngpush
 #CustomTemplateList[]=global
 #CustomTemplateList[]=setup
 #CustomTemplateList[]=analytics
@@ -14,6 +15,7 @@
 
 #CustomEditTemplateList[]
 
+#IncludeInView[ngpush]=full
 #IncludeInView[global]=*
 #IncludeInView[setup]=*
 #IncludeInView[newsletter]=*
